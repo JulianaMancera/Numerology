@@ -110,6 +110,8 @@
   </table>
 </div>
 
-### Sample Output
-`$names = array(“John Smith", “John Doe", “EJ“, ”Alex”, ”Yvonne”);` <br> <br>
-![image](https://github.com/user-attachments/assets/fca0a26b-4318-4d25-8057-9736ef3db0c2)
+### Landing Page
+![image](https://github.com/user-attachments/assets/5cf10ef8-ed8e-4897-9f33-980219fba7fa)
+
+### Programmer 
+Juliana Mancera
