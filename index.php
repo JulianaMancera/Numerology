@@ -290,7 +290,7 @@
             </div>
             
             <h1 class="title-main text-5xl md:text-8xl font-extrabold mb-8 leading-tight">
-                Cosmic Numerology
+               Astro Numerology
             </h1>
             
             <p class="subtitle text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">
