@@ -187,8 +187,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         position: relative;
         overflow: hidden;
         margin-bottom: 50px;
-        max-width: 900px; /* Increased for side-by-side layout */
-        width: 90%; /* Responsive */
+        max-width: 900px;
+        width: 90%; 
         padding: 20px;
     }
         
@@ -288,7 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                 inset 0 0 30px rgba(147, 51, 234, 0.1),
                 0 10px 30px rgba(45, 7, 89, 0.3);
             padding: 20px;
-            height: 100%; /* Ensures it matches the form height */
+            height: 100%; 
         }
         .result-box::-webkit-scrollbar {
             width: 8px;
@@ -359,20 +359,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             .calculator-card {
                 margin: 1rem;
                 padding: 1.5rem;
-                max-width: 600px; /* Smaller width for mobile */
+                max-width: 600px;
             }
             
             .title-glow {
                 font-size: 2rem;
             }
 
-            /* Stack form and results on smaller screens */
             .flex-col {
                 flex-direction: column !important;
             }
 
             .result-box {
-                height: auto; /* Allow natural height on mobile */
+                height: auto;
             }
         }
         
@@ -399,9 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         <p class="text-purple-200 text-lg opacity-90">Discover the mystical power within your name</p>
     </div>
     
-    <!-- Flex container for form and results -->
     <div class="flex flex-col md:flex-row gap-6">
-        <!-- Form Section -->
         <div class="flex-1">
             <form method="post" class="mb-8">
                 <div class="relative mb-6">
