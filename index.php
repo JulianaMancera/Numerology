@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astro Numerology</title>
+    <link rel="website icon" type="png" href="moon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -276,7 +277,7 @@
 </head>
 <body class="text-white font-sans flex items-center justify-center min-h-screen">
     <div class="stars"></div>
-    <div class="main-container max-w-4xl mx-auto px-8 py-10 text-center rounded-3xl shadow-2xl relative">
+    <div class="main-container max-w-5xl mx-auto px-10 py-3 text-center rounded-3xl shadow-3xl relative">
         <div class="mystical-icons text-purple-400">
             <i class="fas fa-star text-2xl"></i>
             <i class="fas fa-moon text-2xl"></i>

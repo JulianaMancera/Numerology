@@ -411,7 +411,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                 </div>
                 <button type="submit" class="btn-calculate w-full py-4 rounded-xl text-white font-bold text-lg relative z-10">
                     <i class="fas fa-calculator mr-2"></i>Calculate My Numbers
-                </button>
             </form>
         </div>
 
