@@ -328,9 +328,8 @@
     </div>
     
     <footer class="footer-container fixed bottom-0 w-full text-center py-6">
-        <p class="footer-text font-medium">
-            <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera
-            <i class="fas fa-sparkles ml-3 text-purple-400"></i>
+       <p class="footer-text font-medium text-purple-300">
+            <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>
     </footer>
 </body>

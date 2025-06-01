@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro Numerology</title>
-     <link rel="website icon" type="png" href="moon.png">
+    <title>Instructions - Astro Numerology</title>
+    <link rel="website icon" type="png" href="moon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
+       body {
             background: url('violet.gif') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
-            padding: 2rem 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            color: #d1d5db;
         }
         
         .stars {    
@@ -55,6 +58,8 @@
         .container-main {
             position: relative;
             z-index: 10;
+            flex: 1 0 auto; 
+            padding: 2rem 0 4rem;
         }
         
         .title-section {
@@ -172,6 +177,10 @@
         .nav-link {
             position: relative;
             transition: all 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem; 
+            background: rgba(30, 4, 66, 0.8); 
+            border-radius: 0.5rem; 
         }
         
         .nav-link::after {
@@ -199,6 +208,8 @@
             backdrop-filter: blur(15px);
             border-top: 2px solid rgba(147, 51, 234, 0.3);
             box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);
+            flex-shrink: 0; 
+            padding: 1rem 0;
         }
         
         .mystical-decoration {
@@ -229,7 +240,6 @@
             }
         }
         
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -398,11 +408,13 @@
         </div>
     </div>
     
-    <footer class="footer-container w-full text-center py-6">
-         <p class="footer-text font-medium">
+<footer class="footer-container w-full text-center py-6">
+    <div class="flex items-center justify-center">
+        <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera
-            <i class="fas fa-sparkles ml-3 text-purple-400"></i>
         </p>
-    </footer>
+        <i class="fas fa-star text-purple-300 ml-2"></i>
+    </div>
+</footer>
 </body>
 </html>

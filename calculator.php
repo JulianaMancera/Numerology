@@ -411,6 +411,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                 </div>
                 <button type="submit" class="btn-calculate w-full py-4 rounded-xl text-white font-bold text-lg relative z-10">
                     <i class="fas fa-calculator mr-2"></i>Calculate My Numbers
+                </button>
             </form>
         </div>
 
@@ -464,7 +465,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
 </div>
     
     <footer class="footer-container fixed bottom-0 w-full text-center py-4">
-        <p class="text-purple-300">
+        <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-1"></i>2025 Juliana Mancera
             <i class="fas fa-star ml-2 text-purple-400"></i>
         </p>
