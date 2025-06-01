@@ -110,8 +110,13 @@
   </table>
 </div>
 
-### Landing Page
-![image](https://github.com/user-attachments/assets/5cf10ef8-ed8e-4897-9f33-980219fba7fa)
+## Programs Used
+- **HTML**: For the structure of the web pages.
+- **CSS**: Styled with Tailwind CSS (loaded via CDN) for responsive and modern design.
+- **PHP**: Used for server-side logic (e.g., `calculator.php` for numerology calculations).
 
-### Programmer 
-Juliana Mancera
+## How to run
+  Used the deployment link to access the app 
+
+## License
+© 2025 Juliana Mancera
