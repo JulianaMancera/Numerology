@@ -74,6 +74,7 @@ $result = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
     $name = trim($_POST['name']);
     if (!empty($name)) {
+
         // Calculate Destiny Number (full name)
         $destinyCalc = calculateNumber($name, $numerology);
         $destinyReduced = reduceToSingleDigitSteps($destinyCalc['number']);
@@ -131,11 +132,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             background: url('violet.gif') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
+            padding: 1rem 1rem 100px 1rem; 
+        }
+        
+        .main-container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            min-height: calc(100vh - 120px); 
         }
         
         .stars {
@@ -175,22 +180,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             to { transform: translateX(200px); }
         }
         
-       .calculator-card {
-        background: linear-gradient(145deg, rgba(45, 7, 89, 0.95), rgba(30, 4, 66, 0.95));
-        border: 2px solid rgba(147, 51, 234, 0.3);
-        backdrop-filter: blur(20px);
-        box-shadow: 
-            0 25px 50px rgba(45, 7, 89, 0.4),
-            0 0 100px rgba(147, 51, 234, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 50px;
-        max-width: 900px;
-        width: 90%; 
-        padding: 20px;
-    }
+        .calculator-card {
+            background: linear-gradient(145deg, rgba(45, 7, 89, 0.95), rgba(30, 4, 66, 0.95));
+            border: 2px solid rgba(147, 51, 234, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 25px 50px rgba(45, 7, 89, 0.4),
+                0 0 100px rgba(147, 51, 234, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            max-width: 900px; 
+            width: 90%; 
+            padding: 1.5rem; 
+        }
         
         .calculator-card::before {
             content: '';
@@ -253,7 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            margin-bottom: 40px;
+            margin-bottom: 2rem; 
         }
         
         .btn-calculate::before {
@@ -287,9 +291,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             box-shadow: 
                 inset 0 0 30px rgba(147, 51, 234, 0.1),
                 0 10px 30px rgba(45, 7, 89, 0.3);
-            padding: 20px;
-            height: 100%; 
+            padding: 1.25rem; 
+            max-height: 400px; 
+            overflow-y: auto; 
         }
+        
         .result-box::-webkit-scrollbar {
             width: 8px;
         }
@@ -356,14 +362,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         }
         
         @media (max-width: 768px) {
+            .main-container {
+                min-height: calc(100vh - 100px);
+            }
+            
             .calculator-card {
-                margin: 1rem;
-                padding: 1.5rem;
-                max-width: 600px;
+                margin: 1rem 0.5rem;
+                padding: 1.25rem;
+                max-width: 95%;
             }
             
             .title-glow {
-                font-size: 2rem;
+                font-size: 1.75rem; 
             }
 
             .flex-col {
@@ -371,7 +381,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             }
 
             .result-box {
-                height: auto;
+                max-height: 300px; 
             }
         }
         
@@ -391,78 +401,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
 </head>
 <body class="text-gray-100 font-sans">
     <div class="stars"></div>
-   <div class="calculator-card max-w-4xl w-full rounded-2xl p-8 shadow-2xl relative z-10">
-    <div class="text-center mb-8">
-        <i class="fas fa-star-and-crescent text-4xl text-purple-400 mystical-icon mb-4"></i>
-        <h1 class="text-4xl md:text-5xl font-extrabold title-glow mb-4">Numerology Calculator</h1>
-        <p class="text-purple-200 text-lg opacity-90">Discover the mystical power within your name</p>
-    </div>
     
-    <div class="flex flex-col md:flex-row gap-6">
-        <div class="flex-1">
-            <form method="post" class="mb-8">
-                <div class="relative mb-6">
-                    <label for="name" class="block text-sm font-semibold mb-3 text-purple-200">
-                        <i class="fas fa-user-circle mr-2"></i>Enter Your Full Name:
-                    </label>
-                    <input type="text" id="name" name="name" placeholder="e.g., John Smith" required
-                           class="input-field w-full p-4 rounded-xl text-white focus:outline-none transition-all duration-300 text-lg"
-                           value="<?php echo isset($name) ? htmlspecialchars($name) : ''; ?>">
+    <div class="main-container">
+        <div class="calculator-card rounded-2xl shadow-2xl relative z-10">
+            <div class="text-center mb-6">
+                <i class="fas fa-star-and-crescent text-3xl text-purple-400 mystical-icon mb-3"></i> 
+                <h1 class="text-3xl md:text-4xl font-extrabold title-glow mb-3">Numerology Calculator</h1> 
+                <p class="text-purple-200 text-base opacity-90">Discover the mystical power within your name</p> 
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-4"> 
+                <div class="flex-1">
+                    <form method="post" class="mb-6"> 
+                        <div class="relative mb-4"> 
+                            <label for="name" class="block text-sm font-semibold mb-2 text-purple-200"> 
+                                <i class="fas fa-user-circle mr-2"></i>Enter Your Full Name:
+                            </label>
+                            <input type="text" id="name" name="name" placeholder="e.g., John Smith" required
+                                   class="input-field w-full p-3 rounded-xl text-white focus:outline-none transition-all duration-300 text-base"
+                                   value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
+                        </div>
+                        <button type="submit" class="btn-calculate w-full py-3 rounded-xl text-white font-bold text-base relative z-10"> 
+                            <i class="fas fa-calculator mr-2"></i>Calculate My Numbers
+                        </button>
+                    </form>
                 </div>
-                <button type="submit" class="btn-calculate w-full py-4 rounded-xl text-white font-bold text-lg relative z-10">
-                    <i class="fas fa-calculator mr-2"></i>Calculate My Numbers
-                </button>
-            </form>
-        </div>
 
-        <!-- Results Section -->
-        <div class="flex-1">
-            <div class="result-box rounded-xl p-6">
-                <h3 class="text-2xl font-bold mb-4 text-center">
-                    <i class="fas fa-crystal-ball mr-2 text-purple-400"></i>
-                    <span class="result-number">Your Mystical Numbers</span>
-                </h3>
-                <?php if ($result): ?>
-                    <div class="space-y-6 text-purple-100">
-                        <!-- Destiny Number -->
-                        <div>
-                            <h4 class="text-xl font-semibold text-purple-300">Destiny Number: <span class="result-number"><?php echo $result['destiny']['number']; ?></span></h4>
-                            <p class="text-lg"><?php echo $result['destiny']['description']; ?></p>
-                            <p class="text-sm opacity-75">Calculation: <?php echo implode(' → ', $result['destiny']['steps']); ?></p>
-                        </div>
-                        <!-- Soul Number -->
-                        <div>
-                            <h4 class="text-xl font-semibold text-purple-300">Soul Number: <span class="result-number"><?php echo $result['soul']['number']; ?></span></h4>
-                            <p class="text-lg"><?php echo $result['soul']['description']; ?></p>
-                            <p class="text-sm opacity-75">Calculation: <?php echo implode(' → ', $result['soul']['steps']); ?></p>
-                        </div>
-                        <!-- Personality Number -->
-                        <div>
-                            <h4 class="text-xl font-semibold text-purple-300">Personality Number: <span class="result-number"><?php echo $result['personality']['number']; ?></span></h4>
-                            <p class="text-lg"><?php echo $result['personality']['description']; ?></p>
-                            <p class="text-sm opacity-75">Calculation: <?php echo implode(' → ', $result['personality']['steps']); ?></p>
-                        </div>
+                <!-- Results Section -->
+                <div class="flex-1">
+                    <div class="result-box rounded-xl">
+                        <h3 class="text-xl font-bold mb-3 text-center"> 
+                            <i class="fas fa-crystal-ball mr-2 text-purple-400"></i>
+                            <span class="result-number">Your Mystical Numbers</span>
+                        </h3>
+                        <?php if ($result): ?>
+                            <div class="space-y-4 text-purple-100"> 
+                                <!-- Destiny Number -->
+                                <div>
+                                    <h4 class="text-lg font-semibold text-purple-300">Destiny Number: <span class="result-number"><?php echo $result['destiny']['number']; ?></span></h4>
+                                    <p class="text-base"><?php echo $result['destiny']['description']; ?></p>
+                                    <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['destiny']['steps']); ?></p>
+                                </div>
+                                <!-- Soul Number -->
+                                <div>
+                                    <h4 class="text-lg font-semibold text-purple-300">Soul Number: <span class="result-number"><?php echo $result['soul']['number']; ?></span></h4>
+                                    <p class="text-base"><?php echo $result['soul']['description']; ?></p>
+                                    <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['soul']['steps']); ?></p>
+                                </div>
+                                <!-- Personality Number -->
+                                <div>
+                                    <h4 class="text-lg font-semibold text-purple-300">Personality Number: <span class="result-number"><?php echo $result['personality']['number']; ?></span></h4>
+                                    <p class="text-base"><?php echo $result['personality']['description']; ?></p>
+                                    <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['personality']['steps']); ?></p>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <div class="text-center text-purple-200 opacity-75">
+                                <i class="fas fa-magic text-2xl mb-3"></i> 
+                                <p class="text-sm">Enter your name above to reveal your numerological destiny</p> 
+                            </div>
+                        <?php endif; ?>
                     </div>
-                <?php else: ?>
-                    <div class="text-center text-purple-200 opacity-75">
-                        <i class="fas fa-magic text-3xl mb-4"></i>
-                        <p>Enter your name above to reveal your numerological destiny</p>
-                    </div>
-                <?php endif; ?>
+                </div>
+            </div>
+            
+            <div class="nav-links text-center mt-6 space-x-6"> 
+                <a href="index.php" class="text-purple-300 hover:text-purple-100 font-medium">
+                    <i class="fas fa-home mr-1"></i>Back to Home
+                </a>
+                <span class="text-purple-500">|</span>
+                <a href="instructions.php" class="text-purple-300 hover:text-purple-100 font-medium">
+                    <i class="fas fa-book mr-1"></i>Instructions
+                </a>
             </div>
         </div>
     </div>
-    
-    <div class="nav-links text-center mt-8 space-x-6">
-        <a href="index.php" class="text-purple-300 hover:text-purple-100 font-medium">
-            <i class="fas fa-home mr-1"></i>Back to Home
-        </a>
-        <span class="text-purple-500">|</span>
-        <a href="instructions.php" class="text-purple-300 hover:text-purple-100 font-medium">
-            <i class="fas fa-book mr-1"></i>Instructions
-        </a>
-    </div>
-</div>
     
     <footer class="footer-container fixed bottom-0 w-full text-center py-4">
         <p class="footer-text font-medium text-purple-300">

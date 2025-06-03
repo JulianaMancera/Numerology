@@ -59,7 +59,7 @@
             position: relative;
             z-index: 10;
             flex: 1 0 auto; 
-            padding: 2rem 0 4rem;
+            padding: 2rem 0 1rem;
         }
         
         .title-section {
@@ -69,6 +69,9 @@
             box-shadow: 
                 0 25px 50px rgba(45, 7, 89, 0.4),
                 0 0 100px rgba(147, 51, 234, 0.1);
+            width: 100%;
+            max-width: none;
+            overflow: visible;
         }
         
         .title-glow {
@@ -78,6 +81,8 @@
             -webkit-text-fill-color: transparent;
             animation: gradient-shift 4s ease infinite;
             filter: drop-shadow(0 0 25px rgba(147, 51, 234, 0.6));
+            white-space: nowrap;
+            overflow: visible;
         }
         
         @keyframes gradient-shift {
@@ -228,7 +233,15 @@
         /* Responsive improvements */
         @media (max-width: 768px) {
             .title-glow {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
+                line-height: 1.2;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .title-section {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
             }
             
             .mystical-decoration {
@@ -237,6 +250,27 @@
             
             .card {
                 margin: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title-glow {
+                font-size: 1.5rem;
+                line-height: 1.2;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .title-section {
+                padding: 1rem;
+                margin: 0 0.25rem;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .title-glow {
+                font-size: 1.3rem;
+                line-height: 1.2;
             }
         }
         
@@ -394,17 +428,16 @@
                     The results include detailed step-by-step calculations showing how each number is derived from your name.
                 </p>
                 <div class="text-center">
-                    <a href="calculator.php" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block relative">
-                        <i class="fas fa-calculator mr-2"></i>Start Your Reading
+                    <a href="calculator.php" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block relative mb-4">
+                        <i class="fas fa-calculator mr-3"></i>Start Your Reading
                     </a>
+                    <div>
+                        <a href="index.php" class="nav-link text-purple-300 hover:text-purple-100 font-medium text-lg">
+                            <i class="fas fa-home mr-3"></i>Back to Home
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="text-center mt-8">
-            <a href="index.php" class="nav-link text-purple-300 hover:text-purple-100 font-medium text-lg">
-                <i class="fas fa-home mr-2"></i>Back to Home
-            </a>
         </div>
     </div>
     
