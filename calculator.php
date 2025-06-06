@@ -506,10 +506,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         </div>
     </div>
     
-    <footer class="footer-container">
+ <footer class="footer-container fixed bottom-0 text-center">
         <p class="footer-text font-medium text-purple-300">
-            <i class="fas fa-copyright mr-1"></i>2025 Juliana Mancera
-            <i class="fas fa-star ml-2 text-purple-400"></i>
+            <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>
     </footer>
 </body>
