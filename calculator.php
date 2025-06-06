@@ -132,7 +132,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             background: url('violet.gif') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
-            padding: 1rem 1rem 100px 1rem; 
+            overflow-x: hidden;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
         }
         
         .main-container {
@@ -140,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 120px); 
+            flex-grow: 1;
         }
         
         .stars {
@@ -343,8 +346,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             background: linear-gradient(135deg, rgba(20, 4, 45, 0.95), rgba(35, 7, 75, 0.95));
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(147, 51, 234, 0.2);
+            padding: 1rem 0; 
+            text-align: center;
+            margin-top: auto; 
+            width: 100%; 
         }
         
+        .footer-text {
+            background: linear-gradient(90deg, rgba(196, 132, 252, 0.8), rgba(255, 255, 255, 0.6), rgba(196, 132, 252, 0.8));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .mystical-icon {
             animation: float 6s ease-in-out infinite;
         }
@@ -363,7 +376,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         
         @media (max-width: 768px) {
             .main-container {
-                min-height: calc(100vh - 100px);
+                margin: 1rem;
+                padding: 2rem 1.5rem;
             }
             
             .calculator-card {
@@ -383,6 +397,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             .result-box {
                 max-height: 300px; 
             }
+            .nav-links {
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem; 
+            }
+
+            .nav-links .text-purple-500 {
+                display: none; 
+            }
+            
         }
         
         @media (prefers-reduced-motion: no-preference) {
@@ -465,19 +494,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                 </div>
             </div>
             
-            <div class="nav-links text-center mt-6 space-x-6"> 
-                <a href="index.php" class="text-purple-300 hover:text-purple-100 font-medium">
-                    <i class="fas fa-home mr-1"></i>Back to Home
-                </a>
-                <span class="text-purple-500">|</span>
-                <a href="instructions.php" class="text-purple-300 hover:text-purple-100 font-medium">
-                    <i class="fas fa-book mr-1"></i>Instructions
-                </a>
-            </div>
+            <div class="nav-links flex flex-row items-center justify-center mt-6 space-x-6 md:space-x-6">
+            <a href="index.php" class="flex items-center text-purple-300 hover:text-purple-100 font-medium">
+                <i class="fas fa-home mr-1"></i>Back to Home
+            </a>
+            <span class="text-purple-500">|</span>
+            <a href="instructions.php" class="flex items-center text-purple-300 hover:text-purple-100 font-medium">
+                <i class="fas fa-book mr-1"></i>Instructions
+            </a>
+        </div>
         </div>
     </div>
     
-    <footer class="footer-container fixed bottom-0 w-full text-center py-4">
+    <footer class="footer-container">
         <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-1"></i>2025 Juliana Mancera
             <i class="fas fa-star ml-2 text-purple-400"></i>

@@ -12,10 +12,10 @@
             background: url('violet.gif') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
+            overflow-x: hidden;
             margin: 0;
             display: flex;
             flex-direction: column;
-            color: #d1d5db;
         }
         
         .stars {    
@@ -55,13 +55,32 @@
             to { transform: translateX(200px); }
         }
         
-        .container-main {
+        .main-container {
+            background: linear-gradient(145deg, rgba(30, 4, 66, 0.95), rgba(45, 7, 89, 0.9));
+            border: 3px solid rgba(147, 51, 234, 0.4);
+            backdrop-filter: blur(25px);
+            box-shadow: 
+                0 30px 80px rgba(45, 7, 89, 0.6),
+                0 0 120px rgba(147, 51, 234, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1);
             position: relative;
-            z-index: 10;
-            flex: 1 0 auto; 
-            padding: 2rem 0 1rem;
+            overflow: hidden;
+            margin-bottom: 120px;
+            width: 90%; 
+            margin-top: 40px;
         }
-        
+
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(147, 51, 234, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
         .title-section {
             background: linear-gradient(145deg, rgba(30, 4, 66, 0.95), rgba(45, 7, 89, 0.9));
             border: 2px solid rgba(147, 51, 234, 0.4);
@@ -212,11 +231,19 @@
             background: linear-gradient(135deg, rgba(20, 4, 45, 0.95), rgba(35, 7, 75, 0.95));
             backdrop-filter: blur(15px);
             border-top: 2px solid rgba(147, 51, 234, 0.3);
-            box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);
-            flex-shrink: 0; 
-            padding: 1rem 0;
+            box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);;
+            padding: 1rem;
+            text-align: center;
+            margin-top: auto; 
+            width: 100%;
         }
-        
+
+        .footer-text {
+            background: linear-gradient(90deg, rgba(196, 132, 252, 0.8), rgba(255, 255, 255, 0.6), rgba(196, 132, 252, 0.8));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .mystical-decoration {
             position: absolute;
             top: 20px;
@@ -230,8 +257,13 @@
             50% { transform: translateY(-10px) rotate(10deg); }
         }
         
-        /* Responsive improvements */
         @media (max-width: 768px) {
+
+            .main-container {
+                margin: 1rem;
+                padding: 2rem 1.5rem;
+            }
+            
             .title-glow {
                 font-size: 1.8rem;
                 line-height: 1.2;
@@ -302,7 +334,7 @@
         }
     </style>
 </head>
-<body class="text-gray-100 font-sans">
+<body class="text-white font-sans flex items-center justify-center min-h-screen">
     <div class="stars"></div>
     <div class="container-main container mx-auto px-4 py-8">
         <div class="title-section rounded-2xl p-8 mb-8 text-center relative">
@@ -316,7 +348,7 @@
             <p class="text-purple-200 text-lg">Master the ancient art of numerical divination</p>
         </div>
         
-        <div class="max-w-4xl mx-auto card rounded-2xl p-8 shadow-2xl relative">
+        <div class="max-w-4xl mx-auto card rounded-2xl p-8 shadow-2xl relative mb-12">
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <h2 class="section-title text-3xl font-bold mb-6 flex items-center">
@@ -441,13 +473,10 @@
         </div>
     </div>
     
-<footer class="footer-container w-full text-center py-6">
-    <div class="flex items-center justify-center">
+ <footer class="footer-container fixed bottom-0 text-center">
         <p class="footer-text font-medium text-purple-300">
-            <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera
+            <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>
-        <i class="fas fa-star text-purple-300 ml-2"></i>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>
