@@ -18,7 +18,8 @@ $personalityChart = [
     8 => 'practical endeavors, status-oriented, power-seeking, high-mental goals',
     9 => 'humanitarian, giving, selflessness, obligations, creative expression',
     11 => 'higher spiritual plane, intuitive, illumination, idealist, a dreamer',
-    22 => 'master builder, larger endeavors, powerful force, leadership'
+    22 => 'master builder, larger endeavors, powerful force, leadership',
+    33 => 'master teacher, compassionate, uplifting, selfless service to others'
 ];
 
 // Destiny chart
@@ -37,7 +38,7 @@ $destinyChart = [
     33 => 'Master Teacher'
 ];
 
-function calculateNumber($name, $numerology, $filterVowels = null) {
+function calculateNumber(string $name, array $numerology, ?bool $filterVowels = null): array {
     $name = strtoupper(str_replace(' ', '', $name));
     $sum = 0;
     $steps = [];
@@ -54,10 +55,13 @@ function calculateNumber($name, $numerology, $filterVowels = null) {
     return ["number" => $sum, "steps" => $steps];
 }
 
-function reduceToSingleDigitSteps($num) {
+function isMasterNumber(int $num): bool {
+    return $num == 11 || $num == 22 || $num == 33;
+}
+
+function reduceToSingleDigitSteps(int $num): array {
     $steps = [];
-    // Preserve master numbers 11 and 22
-    if ($num == 11 || $num == 22) {
+    if (isMasterNumber($num)) {
         return ["number" => $num, "steps" => $steps];
     }
     while ($num > 9) {
@@ -91,26 +95,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             'name' => $name,
             'destiny' => [
                 'number' => $destinyReduced['number'],
-                'steps' => array_merge(
-                    [implode(" + ", $destinyCalc['steps']) . " = " . $destinyCalc['number']],
-                    $destinyReduced['steps']
-                ),
+                'steps' => [implode(" + ", $destinyCalc['steps']) . " = " . $destinyCalc['number'], ...$destinyReduced['steps']],
                 'description' => $destinyChart[$destinyReduced['number']] ?? 'Unknown'
             ],
             'soul' => [
                 'number' => $soulReduced['number'],
-                'steps' => array_merge(
-                    [implode(" + ", $soulCalc['steps']) . " = " . $soulCalc['number']],
-                    $soulReduced['steps']
-                ),
+                'steps' => [implode(" + ", $soulCalc['steps']) . " = " . $soulCalc['number'], ...$soulReduced['steps']],
                 'description' => $personalityChart[$soulReduced['number']] ?? 'Unknown'
             ],
             'personality' => [
                 'number' => $personalityReduced['number'],
-                'steps' => array_merge(
-                    [implode(" + ", $personalityCalc['steps']) . " = " . $personalityCalc['number']],
-                    $personalityReduced['steps']
-                ),
+                'steps' => [implode(" + ", $personalityCalc['steps']) . " = " . $personalityCalc['number'], ...$personalityReduced['steps']],
                 'description' => $personalityChart[$personalityReduced['number']] ?? 'Unknown'
             ]
         ];

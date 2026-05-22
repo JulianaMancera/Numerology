@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="p" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#f0abfc"/>
+      <stop offset="40%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </radialGradient>
+    <linearGradient id="r" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(220,140,255,0.75)"/>
+      <stop offset="50%" stop-color="#f0abfc"/>
+      <stop offset="100%" stop-color="rgba(220,140,255,0.75)"/>
+    </linearGradient>
+    <linearGradient id="r2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(196,100,252,0.55)"/>
+      <stop offset="50%" stop-color="rgba(232,121,249,0.85)"/>
+      <stop offset="100%" stop-color="rgba(196,100,252,0.55)"/>
+    </linearGradient>
+    <clipPath id="lo"><rect x="-20" y="50" width="140" height="70"/></clipPath>
+    <clipPath id="up"><rect x="-20" y="-20" width="140" height="70"/></clipPath>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Tilt the whole planet ~20 degrees -->
+  <g transform="rotate(-20, 50, 50)">
+    <!-- Rings behind planet -->
+    <g clip-path="url(#lo)" filter="url(#glow)">
+      <ellipse cx="50" cy="50" rx="49" ry="10" fill="none" stroke="url(#r2)" stroke-width="6"/>
+      <ellipse cx="50" cy="50" rx="40" ry="8" fill="none" stroke="url(#r)" stroke-width="7"/>
+    </g>
+
+    <!-- Planet -->
+    <circle cx="50" cy="50" r="25" fill="url(#p)" filter="url(#glow)"/>
+
+    <!-- Shine -->
+    <circle cx="42" cy="41" r="7" fill="rgba(255,255,255,0.18)"/>
+
+    <!-- Rings in front -->
+    <g clip-path="url(#up)" filter="url(#glow)">
+      <ellipse cx="50" cy="50" rx="49" ry="10" fill="none" stroke="url(#r2)" stroke-width="6"/>
+      <ellipse cx="50" cy="50" rx="40" ry="8" fill="none" stroke="url(#r)" stroke-width="7"/>
+    </g>
+  </g>
+</svg>
