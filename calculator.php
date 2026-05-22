@@ -69,6 +69,7 @@ function reduceToSingleDigitSteps(int $num): array {
         $newSum = array_sum($splitNums);
         $steps[] = implode(" + ", $splitNums) . " = " . $newSum;
         $num = $newSum;
+        if (isMasterNumber($num)) break;
     }
     return ["number" => $num, "steps" => $steps];
 }
