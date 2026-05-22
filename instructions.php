@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructions - Astro Numerology</title>
-    <link rel="website icon" type="png" href="moon.png">
+    <link rel="icon" type="image/png" href="moon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -59,15 +59,13 @@
             background: linear-gradient(145deg, rgba(30, 4, 66, 0.95), rgba(45, 7, 89, 0.9));
             border: 3px solid rgba(147, 51, 234, 0.4);
             backdrop-filter: blur(25px);
-            box-shadow: 
+            box-shadow:
                 0 30px 80px rgba(45, 7, 89, 0.6),
                 0 0 120px rgba(147, 51, 234, 0.2),
                 inset 0 2px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            margin-bottom: 120px;
-            width: 90%; 
-            margin-top: 40px;
+            width: 90%;
         }
 
         .main-container::before {
@@ -231,7 +229,7 @@
             background: linear-gradient(135deg, rgba(20, 4, 45, 0.95), rgba(35, 7, 75, 0.95));
             backdrop-filter: blur(15px);
             border-top: 2px solid rgba(147, 51, 234, 0.3);
-            box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);;
+            box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);
             padding: 1rem;
             text-align: center;
             margin-top: auto; 
@@ -334,8 +332,9 @@
         }
     </style>
 </head>
-<body class="text-white font-sans flex items-center justify-center min-h-screen">
+<body class="text-white font-sans flex flex-col min-h-screen">
     <div class="stars"></div>
+    <div class="flex-1">
     <div class="container-main container mx-auto px-4 py-8">
         <div class="title-section rounded-2xl p-8 mb-8 text-center relative">
             <div class="mystical-decoration text-purple-400">
@@ -446,6 +445,10 @@
                             <span class="text-xl font-bold text-purple-400 mr-3 w-8">22</span>
                             <span class="text-sm text-purple-100">Master builder, turning dreams to reality</span>
                         </div>
+                        <div class="number-meaning p-3 rounded-lg flex items-center">
+                            <span class="text-xl font-bold text-purple-400 mr-3 w-8">33</span>
+                            <span class="text-sm text-purple-100">Master teacher, compassionate, selfless service to others</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -472,8 +475,9 @@
             </div>
         </div>
     </div>
-    
- <footer class="footer-container fixed bottom-0 text-center">
+    </div>
+
+    <footer class="footer-container text-center">
         <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>

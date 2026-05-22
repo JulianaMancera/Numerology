@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numerology Calculator</title>
-    <link rel="website icon" type="png" href="moon.png">
+    <link rel="icon" type="image/png" href="moon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -210,8 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         }
         
         .calculator-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 
+            box-shadow:
                 0 35px 70px rgba(45, 7, 89, 0.6),
                 0 0 150px rgba(147, 51, 234, 0.2),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -225,6 +224,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
             -webkit-text-fill-color: transparent;
             animation: gradient-shift 3s ease infinite;
             filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5));
+            line-height: 1.3;
+            padding-bottom: 0.25rem;
+            display: block;
         }
         
         @keyframes gradient-shift {
@@ -459,23 +461,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                             <span class="result-number">Your Mystical Numbers</span>
                         </h3>
                         <?php if ($result): ?>
-                            <div class="space-y-4 text-purple-100"> 
+                            <div class="space-y-5 text-purple-100">
                                 <!-- Destiny Number -->
-                                <div>
-                                    <h4 class="text-lg font-semibold text-purple-300">Destiny Number: <span class="result-number"><?php echo $result['destiny']['number']; ?></span></h4>
-                                    <p class="text-base"><?php echo $result['destiny']['description']; ?></p>
+                                <div class="pb-4 border-b border-purple-700/40">
+                                    <h4 class="text-lg font-semibold text-purple-300 mb-1">Destiny Number: <span class="result-number"><?php echo $result['destiny']['number']; ?></span></h4>
+                                    <p class="text-base mb-1"><?php echo $result['destiny']['description']; ?></p>
                                     <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['destiny']['steps']); ?></p>
                                 </div>
                                 <!-- Soul Number -->
-                                <div>
-                                    <h4 class="text-lg font-semibold text-purple-300">Soul Number: <span class="result-number"><?php echo $result['soul']['number']; ?></span></h4>
-                                    <p class="text-base"><?php echo $result['soul']['description']; ?></p>
+                                <div class="pb-4 border-b border-purple-700/40">
+                                    <h4 class="text-lg font-semibold text-purple-300 mb-1">Soul Number: <span class="result-number"><?php echo $result['soul']['number']; ?></span></h4>
+                                    <p class="text-base mb-1"><?php echo $result['soul']['description']; ?></p>
                                     <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['soul']['steps']); ?></p>
                                 </div>
                                 <!-- Personality Number -->
                                 <div>
-                                    <h4 class="text-lg font-semibold text-purple-300">Personality Number: <span class="result-number"><?php echo $result['personality']['number']; ?></span></h4>
-                                    <p class="text-base"><?php echo $result['personality']['description']; ?></p>
+                                    <h4 class="text-lg font-semibold text-purple-300 mb-1">Personality Number: <span class="result-number"><?php echo $result['personality']['number']; ?></span></h4>
+                                    <p class="text-base mb-1"><?php echo $result['personality']['description']; ?></p>
                                     <p class="text-xs opacity-75">Calculation: <?php echo implode(' → ', $result['personality']['steps']); ?></p>
                                 </div>
                             </div>
@@ -501,7 +503,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
         </div>
     </div>
     
- <footer class="footer-container fixed bottom-0 text-center">
+ <footer class="footer-container text-center">
         <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>

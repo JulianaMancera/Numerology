@@ -59,15 +59,13 @@
             background: linear-gradient(145deg, rgba(30, 4, 66, 0.95), rgba(45, 7, 89, 0.9));
             border: 3px solid rgba(147, 51, 234, 0.4);
             backdrop-filter: blur(25px);
-            box-shadow: 
+            box-shadow:
                 0 30px 80px rgba(45, 7, 89, 0.6),
                 0 0 120px rgba(147, 51, 234, 0.2),
                 inset 0 2px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            margin-bottom: 120px;
-            width: 90%; 
-            margin-top: 40px;
+            width: 90%;
         }
         
         .main-container::before {
@@ -218,6 +216,8 @@
             backdrop-filter: blur(15px);
             border-top: 2px solid rgba(147, 51, 234, 0.3);
             box-shadow: 0 -10px 30px rgba(45, 7, 89, 0.3);
+            margin-top: auto;
+            width: 100%;
         }
         
         .footer-text {
@@ -275,8 +275,9 @@
         }
     </style>
 </head>
-<body class="text-white font-sans flex items-center justify-center min-h-screen">
+<body class="text-white font-sans flex flex-col min-h-screen">
     <div class="stars"></div>
+    <div class="flex-1 flex items-center justify-center py-8">
     <div class="main-container max-w-5xl mx-auto px-10 py-3 text-center rounded-3xl shadow-3xl relative">
         <div class="mystical-icons text-purple-400">
             <i class="fas fa-star text-2xl"></i>
@@ -311,23 +312,24 @@
             <div class="mt-16 opacity-70">
                 <div class="flex justify-center space-x-8 text-purple-300">
                     <div class="text-center">
-                        <i class="fas fa-heart text-3xl mb-2 block"></i>
+                        <i class="fas fa-heart text-xl mb-2 block"></i>
                         <span class="text-sm">Soul Number</span>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-mask text-3xl mb-2 block"></i>
+                        <i class="fas fa-mask text-xl mb-2 block"></i>
                         <span class="text-sm">Personality</span>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-compass text-3xl mb-2 block"></i>
+                        <i class="fas fa-compass text-xl mb-2 block"></i>
                         <span class="text-sm">Destiny</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <footer class="footer-container fixed bottom-0 w-full text-center py-6">
+    </div>
+
+    <footer class="footer-container text-center py-6">
        <p class="footer-text font-medium text-purple-300">
             <i class="fas fa-copyright mr-2"></i>2025 Juliana Mancera <i class="fas fa-star text-purple-300 ml-2"></i> 
         </p>
